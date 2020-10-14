@@ -330,5 +330,6 @@ class ApolloClient(object):
         :return:
         """
         logging.getLogger(__name__).info("Entering listener loop...")
-        self._long_poll()
-        time.sleep(self._cycle_time)
+        while True:
+            self._long_poll()
+            time.sleep(self._cycle_time)
